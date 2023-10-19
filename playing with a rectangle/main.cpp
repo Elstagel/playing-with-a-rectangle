@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include <time.h>
 #include<Windows.h>//	Sleep;
 #include<conio.h>
@@ -9,7 +9,7 @@ enum Color
 	LightGray, DarkGray, LightBlue, LightGreen, LightCyan, LightRed, LightMagenta, Yellow, White
 };
 
-HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);//ïîëó÷àåì äèñêðèïòîð àêòèâíîãî îêíà
+HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);//Ð¿Ð¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ Ð´Ð¸ÑÐºÑ€Ð¸Ð¿Ñ‚Ð¾Ñ€ Ð°ÐºÑ‚Ð¸Ð²Ð½Ð¾Ð³Ð¾ Ð¾ÐºÐ½Ð°
 
 void setColor(Color text, Color background)
 {
@@ -20,23 +20,23 @@ enum Direction { Up = 72, Left = 75, Right = 77, Down = 80, Enter = 13, esc = 27
 
 void setCursor(int x, int y)
 {
-	COORD myCoords = { x,y };//èíèöèàëèçèðóåì ïåðåäàâàåìûìè çíà÷åíèÿìè îáúåêò êîîðäèíàò
+	COORD myCoords = { x,y };//Ð¸Ð½Ð¸Ñ†Ð¸Ð°Ð»Ð¸Ð·Ð¸Ñ€ÑƒÐµÐ¼ Ð¿ÐµÑ€ÐµÐ´Ð°Ð²Ð°ÐµÐ¼Ñ‹Ð¼Ð¸ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸ÑÐ¼Ð¸ Ð¾Ð±ÑŠÐµÐºÑ‚ ÐºÐ¾Ð¾Ñ€Ð´Ð¸Ð½Ð°Ñ‚
 	SetConsoleCursorPosition(hStdOut, myCoords);
 }
 
 class myRectangle
 {
-	//ïîëÿ êëàññà
+	//Ð¿Ð¾Ð»Ñ ÐºÐ»Ð°ÑÑÐ°
 	int height = 2;
 	int width = 3;
 	Color color = Red;
 	char symbol = '+';
 	COORD startCoords{ 5,5 };
 
-	//ìåòîäû:
+	//Ð¼ÐµÑ‚Ð¾Ð´Ñ‹:
 public:
 
-	//set-ìåòîäû  áëîê ìåòîäîâ, êîòîðûå ïðèíèìàþò â êà÷åñòâå àðóãìåíòîâ çíà÷åíèå è óñòàíàâëèâàþþò åãî â êà÷åñâòå çíà÷åíèÿ ïîëÿ êëàññà (ñ ïðåäâàðèòåëüíîé âàëèäàöèåé)
+	//set-Ð¼ÐµÑ‚Ð¾Ð´Ñ‹  Ð±Ð»Ð¾Ðº Ð¼ÐµÑ‚Ð¾Ð´Ð¾Ð², ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ð¿Ñ€Ð¸Ð½Ð¸Ð¼Ð°ÑŽÑ‚ Ð² ÐºÐ°Ñ‡ÐµÑÑ‚Ð²Ðµ Ð°Ñ€ÑƒÐ³Ð¼ÐµÐ½Ñ‚Ð¾Ð² Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð¸ ÑƒÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÑŽÑŽÑ‚ ÐµÐ³Ð¾ Ð² ÐºÐ°Ñ‡ÐµÑÐ²Ñ‚Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ Ð¿Ð¾Ð»Ñ ÐºÐ»Ð°ÑÑÐ° (Ñ Ð¿Ñ€ÐµÐ´Ð²Ð°Ñ€Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾Ð¹ Ð²Ð°Ð»Ð¸Ð´Ð°Ñ†Ð¸ÐµÐ¹)
 	void setRectColor(Color func_color)
 	{
 		if (func_color != Black)
@@ -67,13 +67,13 @@ public:
 	}
 	void setHeight(int Height)
 	{
-		//ïåðåä ïðèñâîåíèåì çíà÷åíèÿ ïðîâåðÿåì åãî
+		//Ð¿ÐµÑ€ÐµÐ´ Ð¿Ñ€Ð¸ÑÐ²Ð¾ÐµÐ½Ð¸ÐµÐ¼ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ Ð¿Ñ€Ð¾Ð²ÐµÑ€ÑÐµÐ¼ ÐµÐ³Ð¾
 		if (Height > 1 && Height < 50)
 		{
 			height = Height;
 		}
 	}
-	//áëîê ìåòîäîâ, êîòîðûå âîçâðàùàþò çíà÷åíèÿ êàæäîãî ïîëÿ
+	//Ð±Ð»Ð¾Ðº Ð¼ÐµÑ‚Ð¾Ð´Ð¾Ð², ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰Ð°ÑŽÑ‚ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ ÐºÐ°Ð¶Ð´Ð¾Ð³Ð¾ Ð¿Ð¾Ð»Ñ
 	int getHeight()
 	{
 		return height;
@@ -122,7 +122,7 @@ public:
 		setColor(White, Black);
 	}
 
-	//ìåòîä äëÿ ïåðåìåùåíèÿ ïðÿìîóãîëüíèêà ïî íàæàòèþ êëàâèøè
+	//Ð¼ÐµÑ‚Ð¾Ð´ Ð´Ð»Ñ Ð¿ÐµÑ€ÐµÐ¼ÐµÑ‰ÐµÐ½Ð¸Ñ Ð¿Ñ€ÑÐ¼Ð¾ÑƒÐ³Ð¾Ð»ÑŒÐ½Ð¸ÐºÐ° Ð¿Ð¾ Ð½Ð°Ð¶Ð°Ñ‚Ð¸ÑŽ ÐºÐ»Ð°Ð²Ð¸ÑˆÐ¸
 	int moveRect(int maxRight, int maxDown)
 	{
 		int key;
@@ -138,7 +138,7 @@ public:
 				{
 					startCoords.Y--;
 				}
-				//åñëè ñòîëêíîâåíèå ñ âåðõíåé ãðàíèöåé - âîçâðàùàåì Up
+				//ÐµÑÐ»Ð¸ ÑÑ‚Ð¾Ð»ÐºÐ½Ð¾Ð²ÐµÐ½Ð¸Ðµ Ñ Ð²ÐµÑ€Ñ…Ð½ÐµÐ¹ Ð³Ñ€Ð°Ð½Ð¸Ñ†ÐµÐ¹ - Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰Ð°ÐµÐ¼ Up
 				if (startCoords.Y == 1)
 				{
 					return Up;
@@ -183,7 +183,7 @@ public:
 		} while (true);
 		return esc;
 	}
-	//ìåòîä äëÿ çàòèðàíèÿ ïðÿìîóãîëüíèêà
+	//Ð¼ÐµÑ‚Ð¾Ð´ Ð´Ð»Ñ Ð·Ð°Ñ‚Ð¸Ñ€Ð°Ð½Ð¸Ñ Ð¿Ñ€ÑÐ¼Ð¾ÑƒÐ³Ð¾Ð»ÑŒÐ½Ð¸ÐºÐ°
 	void clearRectangle()
 	{
 		setColor(Black, Black);
@@ -207,7 +207,7 @@ public:
 	}
 };
 
-//ôóíêöèÿ äëÿ çàïîëíåíèÿ ìàññèâà îáúåêòîâ
+//Ñ„ÑƒÐ½ÐºÑ†Ð¸Ñ Ð´Ð»Ñ Ð·Ð°Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ñ Ð¼Ð°ÑÑÐ¸Ð²Ð° Ð¾Ð±ÑŠÐµÐºÑ‚Ð¾Ð²
 void setFill(myRectangle massiv[], int size)
 {
 	for (size_t i = 0; i < size; i++)
@@ -219,7 +219,7 @@ void setFill(myRectangle massiv[], int size)
 		massiv[i].setRectColor(Color(rand() % 15));
 	}
 }
-//ôóíêóèÿ äëÿ âûâîäà äàííûõ ïî ìàññèâó îáúåêòîâ
+//Ñ„ÑƒÐ½ÐºÑƒÐ¸Ñ Ð´Ð»Ñ Ð²Ñ‹Ð²Ð¾Ð´Ð° Ð´Ð°Ð½Ð½Ñ‹Ñ… Ð¿Ð¾ Ð¼Ð°ÑÑÐ¸Ð²Ñƒ Ð¾Ð±ÑŠÐµÐºÑ‚Ð¾Ð²
 void Printmas(myRectangle massiv[], int size)
 {
 	for (size_t i = 0; i < size; i++)
@@ -228,7 +228,7 @@ void Printmas(myRectangle massiv[], int size)
 		cout << "\n";
 	}
 }
-//ôóíêöèÿ, âîçâðàùàþùàÿ èíäåêñ îáúåêòà ñ ñàìîé áîëüøîé ïëîùàäüþ
+//Ñ„ÑƒÐ½ÐºÑ†Ð¸Ñ, Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰Ð°ÑŽÑ‰Ð°Ñ Ð¸Ð½Ð´ÐµÐºÑ Ð¾Ð±ÑŠÐµÐºÑ‚Ð° Ñ ÑÐ°Ð¼Ð¾Ð¹ Ð±Ð¾Ð»ÑŒÑˆÐ¾Ð¹ Ð¿Ð»Ð¾Ñ‰Ð°Ð´ÑŒÑŽ
 int Getindex(myRectangle massiv[], int size)
 {
 	int max = massiv[0].getSquare(), index_pos = 0;
@@ -345,7 +345,7 @@ public:
 
 void main()
 {
-	//ïåðåìåùåíèå ïðÿìîóãîëüíèêà âûíåñòè êàê ôóíêöèþ
+	//Ð¿ÐµÑ€ÐµÐ¼ÐµÑ‰ÐµÐ½Ð¸Ðµ Ð¿Ñ€ÑÐ¼Ð¾ÑƒÐ³Ð¾Ð»ÑŒÐ½Ð¸ÐºÐ° Ð²Ñ‹Ð½ÐµÑÑ‚Ð¸ ÐºÐ°Ðº Ñ„ÑƒÐ½ÐºÑ†Ð¸ÑŽ
 
 	setlocale(LC_ALL, "rus");
 	srand(time(NULL));
@@ -357,12 +357,12 @@ void main()
 	{
 		frameObj.printFrame();
 
-		code = rect.moveRect(frameObj.GetWidth(), frameObj.GetHeight());//îïðåäåëÿåì ñ êàêîé ñòîðîíîé ïðîèçîøëî ñòîëêíîâåíèå
+		code = rect.moveRect(frameObj.GetWidth(), frameObj.GetHeight());//Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÑÐµÐ¼ Ñ ÐºÐ°ÐºÐ¾Ð¹ ÑÑ‚Ð¾Ñ€Ð¾Ð½Ð¾Ð¹ Ð¿Ñ€Ð¾Ð¸Ð·Ð¾ÑˆÐ»Ð¾ ÑÑ‚Ð¾Ð»ÐºÐ½Ð¾Ð²ÐµÐ½Ð¸Ðµ
 		switch (code)
 		{
 		case Up:
-			//óñòàíîâèòü äëÿ ïðÿìîóãîëüíèêà öâåò êàê ó âåðõíåé ãðàíèöû
-			//äëÿ ýòîé ãðàíèöû ñìåíèòü öâåò íà ñëó÷àéíûé
+			//ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ð´Ð»Ñ Ð¿Ñ€ÑÐ¼Ð¾ÑƒÐ³Ð¾Ð»ÑŒÐ½Ð¸ÐºÐ° Ñ†Ð²ÐµÑ‚ ÐºÐ°Ðº Ñƒ Ð²ÐµÑ€Ñ…Ð½ÐµÐ¹ Ð³Ñ€Ð°Ð½Ð¸Ñ†Ñ‹
+			//Ð´Ð»Ñ ÑÑ‚Ð¾Ð¹ Ð³Ñ€Ð°Ð½Ð¸Ñ†Ñ‹ ÑÐ¼ÐµÐ½Ð¸Ñ‚ÑŒ Ñ†Ð²ÐµÑ‚ Ð½Ð° ÑÐ»ÑƒÑ‡Ð°Ð¹Ð½Ñ‹Ð¹
 			rect.setRectColor(frameObj.GetColorUp());
 			frameObj.SetColorUp(Color(1 + rand() % 15));
 			break;
@@ -383,7 +383,7 @@ void main()
 			rect.setRectColor(Color(1 + rand() % 15));
 			break;
 		}
-		//åñëè ïðîèçîøëî ñòîëêíîâåíèå - 
+		//ÐµÑÐ»Ð¸ Ð¿Ñ€Ð¾Ð¸Ð·Ð¾ÑˆÐ»Ð¾ ÑÑ‚Ð¾Ð»ÐºÐ½Ð¾Ð²ÐµÐ½Ð¸Ðµ - 
 	} while (code != esc);
 
 
